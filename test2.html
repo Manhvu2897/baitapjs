@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div >
+				<h4>
+					Giải phương trình bậc 2
+				</h4>
+			<div >
+				<div >
+					<span id="a">a</span> x <sup>2</sup> + <span id="b">b</span> x + <span id="c">c</span>=0 
+					<br>
+					<span id="test"></span>
+				</div>
+				 <br>
+				<div >
+					<button  type="button" onclick="EnterA()">Nhập A</button>
+					<button  type="button" onclick="EnterB()">Nhập B</button>
+					<button  type="button" onclick="EnterC()">Nhập C</button>
+					<button  type="button" onclick="Test()">Giải phương trình</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script >
+		function EnterA () {
+			do {
+				a = prompt('Nhập giá trị a')
+			} while (a == 0);
+			document.getElementById('a').innerHTML = a
+		}
+		function EnterB () {
+			b = prompt('Nhập giá trị b')
+			document.getElementById('b').innerHTML = b
+		}
+		function EnterC () {
+			c = prompt('Nhập giá trị c')
+			document.getElementById('c').innerHTML = c
+		}
+		function Test () {
+			delta = b * b - 4 * a * c
+			if (delta < 0) {
+				document.getElementById('test').innerHTML = 'Phương trình vô nghiệm'
+			} else if (delta == 0) {
+				nghiemkep = -b / (2 * a)
+				document.getElementById('test').innerHTML = 'Phương trình có nghiệm kép:' + '<br>' + ' x<sub>1</sub> = x<sub>2</sub> = ' + nghiemkep
+			} else {
+				n1 = (-b + Math.sqrt(delta)) / (2 * a)
+				n2 = (-b - Math.sqrt(delta)) / (2 * a)
+				document.getElementById('test').innerHTML = 'Phương trình có 2 nghiệm phân biệt:' + '<br>' + 'x<sub>1</sub> = ' + n1 + '<br>' + 'x<sub>2</sub> = ' + n2
+			}
+		}
+	</script>
+</body>
+</html>

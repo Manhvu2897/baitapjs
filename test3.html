@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div >
+				<h4>
+					Giải  a^b
+				</h4>
+			<div >
+				<div >
+					<span id="a">a</span> <sup id="b">b</sup>
+					<br>
+					<span id="test"></span>
+				</div>
+				 <br>
+				<div >
+					<button  type="button" onclick="EnterA()">Nhập A</button>
+					<button  type="button" onclick="EnterB()">Nhập B</button>
+					<button  type="button" onclick="Test()">Tính</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script >
+		function EnterA () {
+				a = prompt('Nhập giá trị a')
+			document.getElementById('a').innerHTML = a
+		}
+		function EnterB () {
+			b = prompt('Nhập giá trị b')
+			document.getElementById('b').innerHTML = b
+		}
+	
+		function Test () {
+                if (a == 0) {
+                    th = 1;
+                    document.getElementById('test').innerHTML = "Kết quả là : "+ th
+                }
+                else {
+                    th1 =  Math.pow(a,b)
+                    document.getElementById('test').innerHTML = "Kết quả là : "+th1
+                }
+		}
+	</script>
+</body>
+</html>

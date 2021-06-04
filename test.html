@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+<div>
+  <h2>Cho 1 chuỗi gồm từ 5-10 phần tử ( có kiểu là Interger )</h2>
+
+
+<button onclick="myFunction()">Click( Sắp xếp từ lớn đến bé )</button>
+<button onclick="myFunction1()">Click( Sắp xếp từ bé đến lớn )</button>
+<button onclick="daysole()">Click( dãy số lẻ)</button>
+<button onclick="daysochan()">Click( dãy số chẵn)</button>
+
+<p id="test"></p>
+
+</div>
+
+
+
+<script>
+var points = [5,2,8,9,10,3,1,6];
+
+document.getElementById("test").innerHTML = points;
+
+document.write("Tổng số lẻ : " + tongsole(points));
+
+document.write("Tổng số chẵn : " + tongsochan(points));
+
+function myFunction() {
+  points.sort(function(a, b){
+    return b - a
+    });
+  document.getElementById("test").innerHTML = points;
+}
+
+function myFunction1() {
+  points.sort(function(a, b){
+      return a - b 
+    });
+  document.getElementById("test").innerHTML = points;
+}
+
+function daysole() {
+ var hello = points.filter(function(a, b,c){return a % 2 != 0});
+  document.getElementById("test").innerHTML = hello;
+}
+
+function daysochan() {
+ var hello = points.filter(function(a, b,c){return a % 2 == 0});
+  document.getElementById("test").innerHTML = hello;
+}
+
+
+function tongsole(points) {
+    var tong = 0
+    for (var i = 0; i < points.length; i++){
+        if (points[i] % 2 != 0){
+            tong += points[i];
+        }
+    }
+   return tong;
+ 
+}
+function tongsochan(points) {
+  var tong = 0
+  for ( var i = 0; i< points.length; i++){
+    if (points[i] % 2 == 0){
+      tong += points[i];
+    }
+  }
+  return tong
+}
+
+</script>
+
+</body>
+</html>
