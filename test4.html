@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="number" type="number"/>
+    <button onclick="calNumber()">Sum</button>
+
+    <div id="result"></div>
+
+    <script>
+      function calculateSum (num) {
+            var res;
+            if (num == 1) {
+                return 1;
+            } else {
+                res = num + calculateSum(num - 1);
+            }
+            return res;   
+        }
+
+        function calNumber() {
+             input = document.getElementById("number").value;
+            if (input) {
+                 sum = calculateSum(parseInt(input));
+                document.getElementById("result").innerHTML = sum;
+            }
+        }
+    </script>
+</body>
+</html>

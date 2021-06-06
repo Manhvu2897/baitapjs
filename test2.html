@@ -31,7 +31,7 @@
 	<script >
 		function EnterA () {
 			do {
-				a = prompt('Nhập giá trị a')
+			a = prompt('Nhập giá trị a')
 			} while (a == 0);
 			document.getElementById('a').innerHTML = a
 		}
@@ -40,15 +40,15 @@
 			document.getElementById('b').innerHTML = b
 		}
 		function EnterC () {
-			c = prompt('Nhập giá trị c')
+		   	c = prompt('Nhập giá trị c')
 			document.getElementById('c').innerHTML = c
 		}
 		function Test () {
-			delta = b * b - 4 * a * c
+		   	delta = b * b - 4 * a * c
 			if (delta < 0) {
 				document.getElementById('test').innerHTML = 'Phương trình vô nghiệm'
 			} else if (delta == 0) {
-				nghiemkep = -b / (2 * a)
+			 nghiemkep = -b / (2 * a)
 				document.getElementById('test').innerHTML = 'Phương trình có nghiệm kép:' + '<br>' + ' x<sub>1</sub> = x<sub>2</sub> = ' + nghiemkep
 			} else {
 				n1 = (-b + Math.sqrt(delta)) / (2 * a)
