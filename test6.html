@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchpara = document.getElementById("search_para").innerHTML;
+            searchpara = searchpara.toString();
+
+            var vanBan = document.getElementById('vanban');
+            var countCharacter = document.getElementById("count_character");
+            vanBan.addEventListener('input', () => {
+                countCharacter.innerHTML = `Do dai: ${vanBan.value.length}`;
+            })
+            countCharacter.innerHTML = `Do dai: ${vanBan.value.length}`;
+
+            document.getElementById("search").onclick = function () { highlight_word(searchpara) };
+            document.getElementById("replaceBtn").onclick = function () { replaceWord(searchpara) };
+            document.getElementById("showNumber").onclick = function () { showNumber(searchpara) };
+            document.getElementById("showDay").onclick = function () { showDay(searchpara) };
+            document.getElementById("deleteSpace").onclick = function () {deleteSpace(searchpara)};
+        }, false);
+
+
+
+        function highlight_word(searchpara) {
+            var text = document.getElementById("search_text").value;
+            if (text) {
+                var pattern = new RegExp("(" + text + ")", "gi");
+                var new_text = searchpara.replace(pattern, "<span class='highlight'>" + text + "</span>");
+                document.getElementById("search_para").innerHTML = new_text;
+
+                var count = searchpara.match(pattern) ? searchpara.match(pattern).length : 0;
+                document.getElementById("show").innerHTML = `số đếm chữ : ${count}`;
+
+            }
+        }
+        function replaceWord(searchpara) {
+            var textSearch = document.getElementById("search_text").value;
+            var textReplace = document.getElementById("replace").value;
+            if (textSearch && textReplace) {
+              
+                var pattern = new RegExp("(" + textSearch + ")", "gi");
+                var new_text = searchpara.replace(pattern, textReplace);
+               
+                document.getElementById("search_para").innerHTML = new_text;
+            }
+
+        }
+        function showNumber(searchpara) {
+            var pattern = /[0-9]+/g;
+            var new_text = searchpara.replace(pattern, function (match, offset, string) {
+                return "<span class='highlight'>" + match + "</span>"
+            });
+            document.getElementById("search_para").innerHTML = new_text;
+        }
+
+        function showDay(searchpara) {
+
+          var regex =  /[0-3]?[0-9]\/[0-3]?[0-9]\/(?:[0-9]{2})?[0-9]{2}/;
+
+            var new_text = searchpara.replace(regex, function (match, offset, string) {
+                return "<span class='highlight'>" + match + "</span>"
+            });
+
+            document.getElementById("search_para").innerHTML = new_text;
+
+        }
+
+        function deleteSpace (searchpara) {
+            console.log(searchpara);
+            var input = searchpara.replace(/\s+/g, ' ');
+            document.getElementById("search_para").innerHTML = input
+            console.log(input);
+        }
+    </script>
+
+    <style>
+        #search_para {
+            color: grey;
+        }
+
+        .highlight {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div>   
+        <input type="text" id="search_text" placeholder="search" />
+        <input type="button" value="search" id="search" />
+        <br />
+         <input id="replace" type="text" placeholder="replace" />
+        <input type="button" value="replaceBtn" id="replaceBtn" />
+        <br>
+        <div id="show"></div>
+        <hr>
+        <button id="showDay"> show Day</button>
+        <button id="showNumber">show Number</button>
+        <button id="deleteSpace">delele space</button>
+        <p id="count_character"></p>
+        <textarea id="vanban" style="width: 100%;" rows="15">
+            Lunar New Year Festival often falls between late January and early February; it is among
+                the most important holidays in Vietnam. Officially, the festival includes the 1st, 2nd, and 3rd day in
+                Lunar Calendar; however, Vietnamese people often spend nearly a month celebrating this special event.
+                Tet Holiday gets its beginning marked with the first day in the Lunar Year; however, its preparation
+                starts long before that. The 23rd day of the last Lunar month is East Day—a ritual worshiping Kitchen
+                Gods (Tao Cong). It thought that each year on this day, these Gods go to heaven to tell Jade Emperor
+                about all activities of households on earth. On New Year’s Eve, they return home to continue their
+                duties as taking care of families. On New Year’s Day, the first ones who come to visit households—called
+                first-foot—are very important and hence need to be well chosen, as they believed to hold in their hands
+                the entire luck of the family in New Year (Tan Nien). After that, till the third day or even the fourth
+                day of Tet, individuals meet relatives, friends, and colleagues, wishing them all kinds of good things
+                like happiness, health, and success 2/3/2018 ./var/www/site/Brand new document.docx
+        </textarea>
+
+        <div>
+            <p id="search_para">Lunar New Year Festival often falls between late January and early February; it is among
+                the most important holidays in Vietnam. Officially, the festival includes the 1st, 2nd, and 3rd day in
+                Lunar Calendar; however, Vietnamese people often spend nearly a month celebrating this special event.
+                Tet Holiday gets its beginning marked with the first day in the Lunar Year; however, its preparation
+                starts long before that. The 23rd day of the last Lunar month is East Day—a ritual worshiping Kitchen
+                Gods (Tao Cong). It thought that each year on this day, these Gods go to heaven to tell Jade Emperor
+                about all activities of households on earth. On New Year’s Eve, they return home to continue their
+                duties as taking care of families. On New Year’s Day, the first ones who come to visit households—called
+                first-foot—are very important and hence need to be well chosen, as they believed to hold in their hands
+                the entire luck of the family in New Year (Tan Nien). After that, till the third day or even the fourth
+                day of Tet, individuals meet relatives, friends, and colleagues, wishing them all kinds of good things
+                like happiness, health, and success 2/3/2018 ./var/www/site/Brand new document.docx</p>
+        </div>
+    </div>
+</body>
+
+</html>
